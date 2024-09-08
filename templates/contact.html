@@ -1,32 +1,6 @@
-{% extends "base.html" %} {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="contact-container">
-      <h1>ติดต่อเรา</h1>
-      <form action="submit_form.php" method="post">
-        <label for="name">ชื่อ:</label>
-        <input type="text" id="name" name="name" required />
+{% extends "base.html" %} 
 
-        <label for="email">อีเมล:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="subject">หัวข้อ:</label>
-        <input type="text" id="subject" name="subject" required />
-
-        <label for="message">ข้อความ:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">ส่งข้อความ</button>
-      </form>
-    </div>
-  </body>
-</html>
+{% block content %}
+fythg
 
 {% endblock content %}

@@ -1,7 +1,7 @@
 {
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8",
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": false,
         // "python.linting.enabled": true,
         // "python.linting.flake8Enabled": true,
         // "python.analysis.indexing": true,
@@ -11,12 +11,12 @@
     "[django-html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.tabSize": 2,
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
     },
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.tabSize": 2,
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
     },
     "emmet.includeLanguages": {
         "django-html": "html",
