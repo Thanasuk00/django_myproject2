@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+<!---->
+{% block contant %}
+<main>
+  <div class="container-fluid px-4">
+    <div id="app" class="container mt-5">
+      <h2 class="mb-4">แบบฟอร์มลงทะเบียน</h2>
+      <form @submit.prevent="submitForm" class="needs-validation" novalidate>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="firstName" class="form-label">ชื่อ</label>
+            <input type="text" class="form-control" id="firstName" v-model="firstName" required />
+            <div class="invalid-feedback">กรุณากรอกชื่อ</div>
+          </div>
+          <div class="col-md-6">
+            <label for="lastName" class="form-label">นามสกุล</label>
+            <input type="text" class="form-control" id="lastName" v-model="lastName" required />
+            <div class="invalid-feedback">กรุณากรอกนามสกุล</div>
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">อีเมล</label>
+            <input type="email" class="form-control" id="email" v-model="email" required />
+            <div class="invalid-feedback">กรุณากรอกอีเมลที่ถูกต้อง</div>
+          </div>
+          <div class="col-md-6">
+            <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
+            <input type="tel" class="form-control" id="phone" v-model="phone" required pattern="[0-9]{10}" />
+            <div class="invalid-feedback">กรุณากรอกเบอร์โทรศัพท์ที่ถูกต้อง (10 หลัก)</div>
+          </div>
+          <div class="col-12">
+            <label for="address" class="form-label">ที่อยู่</label>
+            <textarea class="form-control" id="address" v-model="address" required></textarea>
+            <div class="invalid-feedback">กรุณากรอกที่อยู่</div>
+          </div>
+          <div class="col-md-6">
+            <label for="birthdate" class="form-label">วันเดือนปีเกิด</label>
+            <input type="date" class="form-control" id="birthdate" v-model="birthdate" required />
+            <div class="invalid-feedback">กรุณาเลือกวันเดือนปีเกิด</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <button class="btn btn-primary" type="submit">ลงทะเบียน</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const firstName = ref("");
+          const lastName = ref("");
+          const email = ref("");
+          const phone = ref("");
+          const address = ref("");
+          const birthdate = ref("");
+
+          const submitForm = () => {
+            const form = document.querySelector(".needs-validation");
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add("was-validated");
+
+            if (form.checkValidity()) {
+              console.log("ข้อมูลที่ส่ง:", {
+                firstName: firstName.value,
+                lastName: lastName.value,
+                email: email.value,
+                phone: phone.value,
+                address: address.value,
+                birthdate: birthdate.value,
+              });
+              // ส่งข้อมูลไปยังเซิร์ฟเวอร์หรือดำเนินการต่อไป
+            }
+          };
+
+          return {
+            firstName,
+            lastName,
+            email,
+            phone,
+            address,
+            birthdate,
+            submitForm,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </div>
+</main>
+{% endblock contant %}
